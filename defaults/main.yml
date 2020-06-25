@@ -27,4 +27,3 @@ sysmon_install_location: C:\sysmon
 sysmon_file_name: Sysmon{{ (ansible_architecture == 'i386') | ternary('', '64') }}.exe
 sysmon_service_name: sysmon{{ (ansible_architecture == 'i386') | ternary('', '64') }}
 sysmon_config_url: "https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/master/sysmonconfig-export.xml"
-

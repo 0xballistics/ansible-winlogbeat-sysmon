@@ -43,4 +43,3 @@
   win_file:
     path: "{{ temp_folder.path }}"
     state: absent
-

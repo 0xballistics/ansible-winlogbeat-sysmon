@@ -24,4 +24,3 @@
 - name: winlogbeat
   include: winlogbeat.yml
   when: not winlogbeat_service_result.exists or force_install
-

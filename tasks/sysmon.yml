@@ -28,4 +28,3 @@
   win_command: "{{ sysmon_install_location }}\\{{ sysmon_file_name }} -accepteula -i {{ sysmon_install_location }}\\sysmonconfig-export.xml"
   args:
     chdir: "{{ sysmon_install_location }}"
-
