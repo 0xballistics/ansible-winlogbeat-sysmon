@@ -13,3 +13,6 @@ Ansible role for installing winlogbeat and sysmon
         # force_install: true
 ```
 
+### configurations
+WinLogBeat: [Malware Archeology WinLogBeat configuration file](https://www.malwarearchaeology.com/s/winlogbeat-8e78.yml).
+Sysmon: [SwiftOnSecurity sysmon config](https://github.com/SwiftOnSecurity/sysmon-config).

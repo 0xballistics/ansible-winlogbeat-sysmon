@@ -1,3 +1,6 @@
+---
+# This task downloads and installs WinLogBeat with Malware Archeology config
+
 - name: Get temp folder (because %temp% fails in win_find)
   win_tempfile:
     state: directory
@@ -19,13 +22,13 @@
 - name: Find unzip folder
   win_find:
     paths: ["{{ temp_folder.path }}/winlogbeat_folders"]
-    recurse: no
+    recurse: false
     file_type: directory
   register: unzip_folder
 
 - name: Copy directory
   win_copy:
-    remote_src: yes
+    remote_src: true
     src: "{{ unzip_folder.files[0].path }}/"
     dest: "{{ winlogbeat_install_location }}"
 

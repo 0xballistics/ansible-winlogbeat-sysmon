@@ -1,3 +1,6 @@
+---
+# This task downloads and installs sysmon with SwiftOnSecurity config
+
 - name: Create sysmon directory
   win_file:
     path: "{{ sysmon_install_location }}"

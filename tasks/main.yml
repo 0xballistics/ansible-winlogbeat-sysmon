@@ -1,3 +1,6 @@
+---
+# Main task which triggers execution of others
+
 - name: clean
   include: clean_all.yml
   when: force_install
@@ -6,7 +9,7 @@
   win_service:
     name: "{{ sysmon_service_name }}"
   register: sysmon_service_result
-  ignore_errors: yes
+  ignore_errors: true
 
 - name: sysmon
   include: sysmon.yml
@@ -16,7 +19,7 @@
   win_service:
     name: winlogbeat
   register: winlogbeat_service_result
-  ignore_errors: yes
+  ignore_errors: true
 
 - debug:
     msg: "Winlogbeat service result: {{ winlogbeat_service_result }}"
