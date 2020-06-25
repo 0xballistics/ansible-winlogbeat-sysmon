@@ -1,0 +1,22 @@
+- name: Remove sysmon
+  win_command: "{{ sysmon_install_location }}\\{{ sysmon_file_name }} -u force"
+  args:
+    chdir: "{{ sysmon_install_location }}"
+  ignore_errors: true
+  
+- name: Remove sysmon directory
+  win_file:
+    path: "{{ sysmon_install_location }}"
+    state: absent
+
+- name: Uninstall winlogbeat service via script
+  win_command: powershell.exe -ExecutionPolicy ByPass -File "{{ winlogbeat_install_location }}\uninstall-service-winlogbeat.ps1"
+  args:
+    chdir: "{{ winlogbeat_install_location }}"
+  ignore_errors: true
+
+- name: Remove winlogbeat directory
+  win_file:
+    path: "{{ winlogbeat_install_location }}"
+    state: absent
+

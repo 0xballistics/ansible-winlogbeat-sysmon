@@ -1,0 +1,10 @@
+---
+- name: Restart WinLogBeat 
+  win_service:
+    name: winlogbeat 
+    state: restarted
+
+- name: Restart Sysmon
+  win_service:
+    name: "{{ sysmon_service_name }}"
+    state: restarted

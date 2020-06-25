@@ -1,0 +1,27 @@
+- name: clean
+  include: clean_all.yml
+  when: force_install
+
+- name: check sysmon service
+  win_service:
+    name: "{{ sysmon_service_name }}"
+  register: sysmon_service_result
+  ignore_errors: yes
+
+- name: sysmon
+  include: sysmon.yml
+  when: not sysmon_service_result.exists 
+
+- name: check WinLogBeat service
+  win_service:
+    name: winlogbeat
+  register: winlogbeat_service_result
+  ignore_errors: yes
+
+- debug:
+    msg: "Winlogbeat service result: {{ winlogbeat_service_result }}"
+
+- name: winlogbeat
+  include: winlogbeat.yml
+  when: not winlogbeat_service_result.exists or force_install
+

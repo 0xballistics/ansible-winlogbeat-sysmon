@@ -1,0 +1,30 @@
+force_install: false
+
+winlogbeat_version: 7.8.0
+
+winlogbeat_kibana_enabled: true
+kibana_host: "localhost:5601"
+
+# elasticsearch or logstash
+winlogbeat_output: elasticsearch
+elasticsearch_host: "localhost:9200"
+logstash_host: "localhost:5044"
+
+winlogbeat_download_url: https://artifacts.elastic.co/downloads/beats/winlogbeat/winlogbeat-{{ winlogbeat_version }}-windows-{{ (ansible_architecture == 'i386') | ternary('x86', 'x86_64') }}.zip
+winlogbeat_install_location: C:\Program Files\Winlogbeat
+
+winlogbeat_bulk_max_size: 500
+winlogbeat_worker: 1
+winlogbeat_logging_to_syslog: false
+winlogbeat_logging_to_files: true
+winlogbeat_rotateeverybytes: 104857600
+winlogbeat_keepfiles: 30
+winlogbeat_ignore_older: 0
+winlogbeat_logname: "winlogbeat.log"
+
+sysmon_download_url: https://download.sysinternals.com/files/Sysmon.zip
+sysmon_install_location: C:\sysmon
+sysmon_file_name: Sysmon{{ (ansible_architecture == 'i386') | ternary('', '64') }}.exe
+sysmon_service_name: sysmon{{ (ansible_architecture == 'i386') | ternary('', '64') }}
+sysmon_config_url: "https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/master/sysmonconfig-export.xml"
+
