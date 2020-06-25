@@ -1,7 +1,7 @@
 ---
-- name: Restart WinLogBeat 
+- name: Restart WinLogBeat
   win_service:
-    name: winlogbeat 
+    name: winlogbeat
     state: restarted
 
 - name: Restart Sysmon

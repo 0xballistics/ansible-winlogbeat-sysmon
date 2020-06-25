@@ -3,7 +3,7 @@
   args:
     chdir: "{{ sysmon_install_location }}"
   ignore_errors: true
-  
+
 - name: Remove sysmon directory
   win_file:
     path: "{{ sysmon_install_location }}"

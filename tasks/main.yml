@@ -10,7 +10,7 @@
 
 - name: sysmon
   include: sysmon.yml
-  when: not sysmon_service_result.exists 
+  when: not sysmon_service_result.exists
 
 - name: check WinLogBeat service
   win_service:

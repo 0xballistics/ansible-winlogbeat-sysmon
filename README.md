@@ -1,7 +1,7 @@
 # ansible-winlogbeat-sysmon
 Ansible role for installing winlogbeat and sysmon
 
-# example playbook
+### example playbook
 ```yaml
 - hosts: win
   tasks:

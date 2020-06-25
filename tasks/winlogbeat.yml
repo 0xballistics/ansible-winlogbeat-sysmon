@@ -17,8 +17,8 @@
     dest: "{{ temp_folder.path }}/winlogbeat_folders"
 
 - name: Find unzip folder
-  win_find: 
-    paths: ["{{ temp_folder.path }}/winlogbeat_folders"] 
+  win_find:
+    paths: ["{{ temp_folder.path }}/winlogbeat_folders"]
     recurse: no
     file_type: directory
   register: unzip_folder
